@@ -46,4 +46,22 @@ let deleteHeading = document.getElementById("deleteMe");
 deleteHeading.innerText = "This heading is corrected using DOM";
 
 let hiddenText = document.getElementById("hidden");
-console.log(hiddenText.textContent)
+console.log(hiddenText.textContent);
+
+let div = document.querySelector("div");
+console.log(div);
+
+let getDivByAttribute = div.getAttribute("id");
+
+let setAttributeId = document.querySelector("#box");
+setAttributeId.setAttribute("id", "Changed");
+
+console.log(setAttributeId);
+
+
+let pChange = document.querySelector("p");
+
+pChange.style.backgroundColor = "purple";
+pChange.style.fontSize = "26px";
+pChange.innerText = "CHanged";
+console.log(pChange);
