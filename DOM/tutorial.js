@@ -65,3 +65,6 @@ pChange.style.backgroundColor = "purple";
 pChange.style.fontSize = "26px";
 pChange.innerText = "CHanged";
 console.log(pChange);
+
+let newBtn = document.createElement("button");
+newBtn.innerText = "Created in JS";
