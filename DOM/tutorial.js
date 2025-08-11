@@ -1,6 +1,7 @@
 // console.log(window);
 // window.alert("Hello");
 
+
 console.dir(window.document);
 console.log(document.head);
 console.log(document.head.childNodes[1]);
@@ -68,3 +69,15 @@ console.log(pChange);
 
 let newBtn = document.createElement("button");
 newBtn.innerText = "Created in JS";
+
+let addBtn = document.querySelector("div");
+// addBtn.append(newBtn);
+// addBtn.prepend(newBtn);
+// addBtn.before(newBtn);
+addBtn.after(newBtn);
+
+let newHeading = document.createElement("h1");
+newHeading.innerHTML = "<i>New heading </i>";
+document.querySelector("body").prepend(newHeading);
+
+newHeading.remove()
