@@ -49,3 +49,40 @@ lexus.mileage = 3000000;
 
 console.log(lexus);
 
+class parent{
+    constructor(fname){
+        this.fname = fname;
+        console.log("Parent constructor started");
+        this.family = "matters";
+        console.log("parent cons exited");
+    }
+    parentFunction(){
+        console.log("this is a parent class function");
+    }
+}
+
+class child extends parent{
+    constructor(fname){ // would be undefined if not fname isnt passed on in super() cause it makes sense
+        console.log("Child cons started");
+        super(fname); // to invoke parent class c
+        // this.branch = branch;
+        console.log("child cons exited");
+    }
+
+    childFunctions(){
+        super.parentFunction();
+        console.log("this is a child function");
+    }
+}
+
+let baby = new child("Something");
+
+// baby.childFunctions();
+// baby.parentFunction();
+
+
+try{
+    console.log(variableIdidnotdefine);
+}catch(err){
+    console.log(err);
+}
