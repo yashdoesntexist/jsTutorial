@@ -5,3 +5,5 @@ const student = {
         console.log("Your grade is ", this.grade);
     }
 }
+
+student.printGrade();
