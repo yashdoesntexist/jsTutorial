@@ -51,16 +51,84 @@ promise.catch((err)=>{
     console.log("rejected", err);
 });
 
-function gettingData(dataInfo, nextData){
+function gettingData(dataInfo){
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             console.log(dataInfo);
             resolve("Success");
-            if(nextData){
-                nextData();
-            }
+            // if(nextData){
+            //     nextData();
+            // }
         }, 5000);
     });
 }
 
-let seeResult = gettingData("Testing promise");
+gettingData(1)               //promise chain
+    .then((res)=>{
+       return gettingData(2);
+    })
+    .then((res)=>{
+        return gettingData(3);
+    })
+    .then((res)=>{
+        return gettingData(4);
+    });
+// let seeResult = gettingData("Testing promise");
+
+
+// promise chain
+
+ function asyncFunc() {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            console.log("some data");
+            resolve("sucecess")
+        }, 4000);
+    });
+ }
+
+ function asyncFunc2() {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            console.log("some data 2");
+            resolve("sucecess")
+        }, 4000);
+    });
+ }
+
+console.log("loading")
+asyncFunc().then((res)=>{
+    console.log(res);
+    console.log("data 2 loading");
+    asyncFunc2().then((res)=>{
+        console.log(res);
+    });
+ });
+
+
+
+//  console.log("loading")
+//  let p2 = asyncFunc2();
+//  p2.then((res)=>{
+//     console.log(res);
+//  });
+
+// async-await function 
+
+function api(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            console.log("test");
+        resolve(200);
+        }, 2000);
+    });
+}
+
+(async function getApiData(){
+    await api(); // call back hell or promise chain but better 
+    await api();
+})();// iife one time call right away execute without calling it makes sense (func)(); is literally function(); called 
+
+async function hello(){
+    console.log("hello");
+}
